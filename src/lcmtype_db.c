@@ -94,20 +94,20 @@ static void *open_lib(const char *libname)
 
 static const char *lcmtype_functions[] =
 {
-    "_t_copy",
-    "_t_decode",
-    "_t_decode_cleanup",
-    "_t_destroy",
-    "_t_encode",
-    "_t_encoded_size",
-    "_t_get_field",
-    "_t_get_type_info",
-    "_t_num_fields",
-    "_t_publish",
-    "_t_struct_size",
-    "_t_subscribe",
-    "_t_subscription_set_queue_capacity",
-    "_t_unsubscribe"
+    "_copy",
+    "_decode",
+    "_decode_cleanup",
+    "_destroy",
+    "_encode",
+    "_encoded_size",
+    "_get_field",
+    "_get_type_info",
+    "_num_fields",
+    "_publish",
+    "_struct_size",
+    "_subscribe",
+    "_subscription_set_queue_capacity",
+    "_unsubscribe"
 };
 
 static void print_missing_methods(int mask)
@@ -168,7 +168,7 @@ static char **find_all_typenames(const char *libname)
 
                 // construct the typename
                 char *typename = strdup(s);
-                typename[len-flen+2] = '\0';
+                typename[len-flen] = '\0';
                 if(DEBUG) printf("found potential typename='%s'\n", typename);
 
                 // have we seen this candidate before?
